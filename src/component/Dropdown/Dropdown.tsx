@@ -9,8 +9,7 @@ const StyledSelect = styled.select<{ disabled?: boolean }>`
   border: 1px solid #ccc;
   font-size: 14px;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-  background-color: ${({ disabled }) =>
-    disabled ? "#e0e0e0" : "#ffffff"};
+  background-color: ${({ disabled }) => (disabled ? "#e0e0e0" : "#ffffff")};
   color: ${({ disabled }) => (disabled ? "#888" : "#000")};
 
   &:focus {

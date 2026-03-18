@@ -6,10 +6,11 @@ const CardWrapper = styled.div<{ disabled?: boolean; width?: string }>`
   width: ${({ width }) => width || "300px"};
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   background-color: ${({ disabled }) => (disabled ? "#f0f0f0" : "#fff")};
   opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
-  cursor: ${({ disabled, onClick }) => (disabled || !onClick ? "default" : "pointer")};
+  cursor: ${({ disabled, onClick }) =>
+    disabled || !onClick ? "default" : "pointer"};
   transition: transform 0.2s;
 
   &:hover {
@@ -56,10 +57,15 @@ const Card: React.FC<CardProps> = ({
   footer,
   width,
   disabled = false,
-  onClick
+  onClick,
 }) => {
   return (
-    <CardWrapper disabled={disabled} width={width} onClick={disabled ? undefined : onClick} data-testid="card-component">
+    <CardWrapper
+      disabled={disabled}
+      width={width}
+      onClick={disabled ? undefined : onClick}
+      data-testid="card-component"
+    >
       {imageSrc && <Image src={imageSrc} alt={title} />}
       <Content>
         <Title>{title}</Title>

@@ -1,9 +1,9 @@
-export * from './Button';
+export * from "./Button";
 export * from "./Label";
 export * from "./Text";
-export *from "./Table";
+export * from "./Table";
 export * from "./Dropdown";
 export * from "./RadioButton";
 export * from "./Img";
-export *from './HeroImage';
-export *from "./Card";
+export * from "./HeroImage";
+export * from "./Card";

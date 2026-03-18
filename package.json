@@ -54,6 +54,10 @@
     "@storybook/react-webpack5": "^10.2.12",
     "@types/storybook__react": "^4.0.2",
     "@types/styled-components": "^5.1.36",
-    "eslint-plugin-storybook": "^10.2.12"
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-storybook": "^10.2.12",
+    "prettier": "^3.8.1"
   }
 }

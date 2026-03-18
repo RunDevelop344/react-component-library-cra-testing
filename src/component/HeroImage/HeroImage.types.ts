@@ -24,5 +24,5 @@ export interface HeroImageProps {
   className?: string;
 
   /** Test id */
-  'data-testid'?: string;
+  "data-testid"?: string;
 }

@@ -4,7 +4,7 @@ import TableRow from "./TableRow";
 import TableCell from "./TableCell";
 
 describe("TableFooter", () => {
-  test("renders footer", () => {
+  test("renders footer content", () => {
     render(
       <table>
         <TableFooter>
@@ -12,21 +12,22 @@ describe("TableFooter", () => {
             <TableCell>Footer</TableCell>
           </TableRow>
         </TableFooter>
-      </table>
+      </table>,
     );
     expect(screen.getByText("Footer")).toBeVisible();
   });
 
-  test("has background", () => {
-    const { container } = render(
+  test("renders footer element", () => {
+    render(
       <table>
         <TableFooter>
           <TableRow>
             <TableCell>Footer</TableCell>
           </TableRow>
         </TableFooter>
-      </table>
+      </table>,
     );
-    expect(container.firstChild).toBeTruthy();
+    const footerCell = screen.getByRole("rowgroup");
+    expect(footerCell).toBeInTheDocument();
   });
 });

@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './HeroImage.module.css';
-import { HeroImageProps } from './HeroImage.types';
+import React from "react";
+import styles from "./HeroImage.module.css";
+import { HeroImageProps } from "./HeroImage.types";
 
 export const HeroImage: React.FC<HeroImageProps> = ({
   imageUrl,
@@ -8,17 +8,16 @@ export const HeroImage: React.FC<HeroImageProps> = ({
   subtitle,
   buttonText,
   onButtonClick,
-  height = '400px',
+  height = "400px",
   overlayOpacity = 0.4,
-  className = '',
-  'data-testid': testId = 'hero-image',
+  className = "",
+  "data-testid": testId = "hero-image",
 }) => {
   return (
     <section
       className={`${styles.hero} ${className}`}
       style={{ backgroundImage: `url(${imageUrl})`, height }}
       data-testid={testId}
-      role="region"
       aria-label="Hero section"
     >
       <div

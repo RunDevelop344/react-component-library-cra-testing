@@ -23,16 +23,17 @@ Component Structure (Important):
 Every component contains five files:
 
 ComponentName/
-├── ComponentName.tsx        # Component implementation
-├── ComponentName.types.ts   # TypeScript interfaces
+├── ComponentName.tsx # Component implementation
+├── ComponentName.types.ts # TypeScript interfaces
 ├── ComponentName.index.ts
 ├── ComponentName.stories.tsx # Storybook stories
-└── ComponentName.test.tsx   # Unit tests
+└── ComponentName.test.tsx # Unit tests
 
 Getting Started
+
 1.  Create React App (TypeScript)
-npx create-react-app react-component-library-cra --template typescript
-cd react-component-library-cra
+    npx create-react-app react-component-library-cra --template typescript
+    cd react-component-library-cra
 
 2.Install Core Dependencies
 npm install
@@ -89,7 +90,7 @@ FROM node:18-alpine
 
 WORKDIR /lastname_firstname_ui_garden
 
-COPY package*.json ./
+COPY package\*.json ./
 
 RUN npm install
 
@@ -114,4 +115,3 @@ Git hub link: https://github.com/RunDevelop344/react-component-library-cra.git
 Author: Simran Simran
 
 License:This project is for academic and demonstration purposes.
-

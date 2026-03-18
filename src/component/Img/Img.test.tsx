@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Img from "./Img";
 
-const src =
-  "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d";
+const src = "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d";
 
 describe("Img", () => {
   test("renders image", () => {

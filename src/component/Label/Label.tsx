@@ -1,9 +1,12 @@
-
 import React from "react";
 import styled from "styled-components";
 import { LabelProps } from "./Label.types";
 
-const StyledLabel = styled.span<{ disabled?: boolean; color?: string; fontSize?: string }>`
+const StyledLabel = styled.span<{
+  disabled?: boolean;
+  color?: string;
+  fontSize?: string;
+}>`
   color: ${({ disabled, color }) => (disabled ? "grey" : color || "black")};
   font-size: ${({ fontSize }) => fontSize || "16px"};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "default")};

@@ -3,7 +3,7 @@ import TableRow from "./TableRow";
 import TableCell from "./TableCell";
 
 describe("TableRow", () => {
-  test("renders row", () => {
+  test("renders row content", () => {
     render(
       <table>
         <tbody>
@@ -11,21 +11,22 @@ describe("TableRow", () => {
             <TableCell>Cell</TableCell>
           </TableRow>
         </tbody>
-      </table>
+      </table>,
     );
     expect(screen.getByText("Cell")).toBeVisible();
   });
 
-  test("applies alternate style", () => {
-    const { container } = render(
+  test("row element exists", () => {
+    render(
       <table>
         <tbody>
           <TableRow>
             <TableCell>Cell</TableCell>
           </TableRow>
         </tbody>
-      </table>
+      </table>,
     );
-    expect(container.firstChild).toBeTruthy();
+    const rowElement = screen.getByRole("row");
+    expect(rowElement).toBeInTheDocument();
   });
 });

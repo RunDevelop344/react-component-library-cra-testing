@@ -1,8 +1,8 @@
 // src/App.tsx
 import React from "react";
 import Button from "./component/Button/Button";
-import {Label }from "./component/Label/Label";
-import {Text} from "./component/Text/Text";
+import { Label } from "./component/Label/Label";
+import { Text } from "./component/Text/Text";
 import Dropdown from "./component/Dropdown/Dropdown";
 import RadioButton from "./component/RadioButton/RadioButton";
 import Img from "./component/Img/Img";
@@ -75,11 +75,7 @@ function App() {
       {/* Radio Buttons */}
       <Section>
         <SectionTitle>Radio Buttons</SectionTitle>
-        <RadioButton
-          label="Option A"
-          name="exampleRadio"
-          value="optionA"
-        />
+        <RadioButton label="Option A" name="exampleRadio" value="optionA" />
         <RadioButton
           label="Option B"
           name="exampleRadio"
@@ -101,10 +97,7 @@ function App() {
       {/* Cards */}
       <Section>
         <SectionTitle>Cards</SectionTitle>
-        <Card
-          title="Sample Card"
-          content="This is a card description"
-        />
+        <Card title="Sample Card" content="This is a card description" />
       </Section>
 
       {/* Table */}
