@@ -27,10 +27,10 @@ RUN npm run build
 # This server will serve the production build on port 8083
 RUN npm install -g serve
 
-# Expose port 8083 so that it can be accessed from the host machine
-EXPOSE 8083
+# Expose port 8018 so that it can be accessed from the host machine
+EXPOSE 8018
 
 # Start the static server to serve the production build
 # -s serves the 'build' folder
 # -l specifies the port (8083)
-CMD ["serve", "-s", "build", "-l", "8083"]
+CMD ["serve", "-s", "build", "-l", "8018"]
