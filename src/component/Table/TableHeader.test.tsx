@@ -1,15 +1,35 @@
 import { render, screen } from "@testing-library/react";
 import TableHeader from "./TableHeader";
+import TableRow from "./TableRow";
 
 describe("TableHeader", () => {
   test("renders header content", () => {
-    render(<TableHeader>Header</TableHeader>);
+    render(
+      <table>
+        <thead>
+          <TableRow>
+            <TableHeader>Header</TableHeader>
+          </TableRow>
+        </thead>
+      </table>,
+    );
+
     expect(screen.getByText("Header")).toBeVisible();
   });
 
   test("applies correct background color", () => {
-    render(<TableHeader>Header</TableHeader>);
-    const headerElement = screen.getByRole("rowgroup");
-    expect(headerElement).toHaveStyle("background-color: #f5f5f5");
+    render(
+      <table>
+        <thead>
+          <TableRow>
+            <TableHeader>Header</TableHeader>
+          </TableRow>
+        </thead>
+      </table>,
+    );
+
+    const headerCell = screen.getByText("Header"); // <th>
+
+    expect(headerCell).toHaveStyle("background-color: rgb(245, 245, 245)");
   });
 });

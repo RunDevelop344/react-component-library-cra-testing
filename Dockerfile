@@ -5,7 +5,7 @@ FROM node:18-alpine
 # Set the working directory inside the container
 # All subsequent commands will be executed from this folder
 # This satisfies the assignment requirement for WORKDIR naming
-WORKDIR /simran_simran_ui_garden
+WORKDIR /simran_simran_ui_garden_build_checks
 
 # Copy package.json and package-lock.json to the container
 # This is done first so that npm install can run without copying all source files
