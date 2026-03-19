@@ -87,9 +87,9 @@ function App() {
       {/* Images */}
       <Section>
         <SectionTitle>Images</SectionTitle>
-        <Img src="https://via.placeholder.com/150" alt="Sample" />
+        <Img src="https://via.unsplash.com/150" alt="Sample" />
         <HeroImage
-          imageUrl="https://via.placeholder.com/600x200"
+          imageUrl="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80"
           title="Hero Sample"
         />
       </Section>
