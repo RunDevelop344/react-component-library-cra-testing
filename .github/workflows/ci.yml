@@ -1,0 +1,42 @@
+name: Code Quality Checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Get repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Setup Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Run ESLint
+      - name: Run ESLint
+        run: npm run lint --if-present
+
+      # Run Prettier check
+      - name: Run Prettier
+        run: npx prettier --check .
+
+      # Run tests
+      - name: Run tests
+        run: npm test -- --watchAll=false
+
+      # Build production version
+      - name: Build project
+        run: npm run build

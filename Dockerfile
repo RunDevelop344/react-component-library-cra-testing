@@ -1,36 +1,23 @@
-# Use a lightweight Node.js image (Alpine) as the base for the container
-# Node.js is required to run npm commands and build the React app
-FROM node:18-alpine
+# ---------- Stage 1: Build React App ----------
+FROM node:18-alpine AS build
 
-# Set the working directory inside the container
-# All subsequent commands will be executed from this folder
-# This satisfies the assignment requirement for WORKDIR naming
 WORKDIR /simran_simran_ui_garden_build_checks
 
-# Copy package.json and package-lock.json to the container
-# This is done first so that npm install can run without copying all source files
 COPY package*.json ./
-
-# Install all project dependencies inside the container
-# This allows the container to build and run the React app
 RUN npm install
 
-# Copy the rest of the project files (source code, public folder, etc.) into the container
 COPY . .
-
-# Build the React app for production
-# This creates the optimized 'build/' folder, ready to be served
-
 RUN npm run build
 
-# Install a lightweight static server globally in the container
-# This server will serve the production build on port 8083
-RUN npm install -g serve
 
-# Expose port 8018 so that it can be accessed from the host machine
+# ---------- Stage 2: Production Server ----------
+FROM nginx:alpine
+
+# Copy production build to Nginx public folder
+COPY --from=build /simran_simran_ui_garden_build_checks/build /usr/share/nginx/html
+
+# Expose assignment-required port
 EXPOSE 8018
 
-# Start the static server to serve the production build
-# -s serves the 'build' folder
-# -l specifies the port (8018)
-CMD ["serve", "-s", "build", "-l", "8018"]
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
