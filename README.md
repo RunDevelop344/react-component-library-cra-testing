@@ -5,16 +5,12 @@
 - Husky pre-commit hooks enforce linting and run tests.
 - Dockerized multi-stage build for production.
 
----
-
 Prerequisites:
 
 - Node.js (>=18 recommended)
 - npm (>=9 recommended)
 - Docker (for containerized deployment)
 - Git (for version control)
-
----
 
 ## Setup Instructions
 
@@ -92,8 +88,6 @@ RUN npm install
 
 COPY . .
 RUN npm run build
-
-# Production stage
 
 FROM nginx:alpine
 
