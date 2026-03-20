@@ -1,116 +1,116 @@
-React Component Library (CRA)
+## Project Overview
 
-A reusable React + TypeScript component library built with Create React App, Storybook, and Docker.
-This project demonstrates a complete UI component workflow from development to containerized deployment.
+- React component library with reusable UI components such as `Button`, `Table`, `HeroImage`, `Img`, `Dropdown`, etc.
+- ESLint and Prettier configured for code linting and formatting.
+- Husky pre-commit hooks enforce linting and run tests.
+- Dockerized multi-stage build for production.
 
-Project Overview:
+---
 
-This project includes reusable UI components such as:
+Prerequisites:
 
-Button
-Label
-Text
-Dropdown
-RadioButton
-Img
-HeroImage
-Card
-Table (with Row, Header, Cell, Footer)
-Each component follows a consistent 5-file structure for scalability and maintainability.
+- Node.js (>=18 recommended)
+- npm (>=9 recommended)
+- Docker (for containerized deployment)
+- Git (for version control)
 
-Component Structure (Important):
+---
 
-Every component contains five files:
+## Setup Instructions
 
-ComponentName/
-├── ComponentName.tsx # Component implementation
-├── ComponentName.types.ts # TypeScript interfaces
-├── ComponentName.index.ts
-├── ComponentName.stories.tsx # Storybook stories
-└── ComponentName.test.tsx # Unit tests
+1.Copy the previous assignment and named react-component-library-cra-testing:
 
-Getting Started
+cd react-component-library-cra-testing
 
-1.  Create React App (TypeScript)
-    npx create-react-app react-component-library-cra --template typescript
-    cd react-component-library-cra
+2.removed pre-existing .git folder and initialized git.
 
-2.Install Core Dependencies
+Initialized new git repository:
+git init
+git add .
+git commit -m "Initial commit for assignment13"
+
+git remote add origin https://github.com/RunDevelop344/react-component-library-cra-testing.git /assignment13-repo.git
+
+git branch -M main
+git push -u origin main
+
+3.Installed dependencies:
 npm install
 
-3.Install Storybook
-npx storybook@latest init
-
-Run Storybook:
-
-npm run storybook
-
-Storybook runs at:
-
-http://localhost:6006
-
-4.Install Testing Libraries (if needed)
-npm install --save-dev @testing-library/react @testing-library/jest-dom
-
-5.Webpack (Already Included in CRA)
-
-Create React App already includes Webpack.
-No manual configuration is required unless customizing.
-
-Available Scripts
-Start Development Server
 npm start
 
-Runs the app at:
+4.Installed eslint prettier
+npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier
 
-http://localhost:3000
+5.Verified installation:
+npx eslint src --ext .js,.jsx,.ts,.tsx
 
-Run Storybook:
-npm run storybook
+6.Fixed eslint error: 29:22 error Avoid direct Node access. Prefer using the methods from Testing Library testing-library/no-node-access
+To fix errors replaced direct Node access with Testing Library queries.
 
-Run Tests:
-npm test
+7.Tried running "npx eslint src --ext .js,.jsx,.ts,.tsx" again
 
-Create Production Build:
-npm run build
+8.npx prettier --check .
 
-Output folder:
+9.Fixed formatting of all the files by running:
+npx prettier --write .
 
-/build
+10.Installed husky:
+npm install --save-dev husky lint-staged
 
-Dockerization:
+11.Enabled Husky:
+npx husky init and created .husky folder with pre-commit file in it and updated package.json
 
-This project is then containerized for production deployment.
+12.Configued lint-staged in package.json:
+"lint-staged": {
+"_.{js,jsx,ts,tsx}": [
+"eslint --fix",
+"prettier --write"
+],
+"_.{css,md,json,html}": [
+"prettier --write"
+]
+}
 
-Dockerfile (Sample)
+13.Pre-commit:
+npx lint-staged
+CI=true npm test
 
-Create a file named Dockerfile in the project root.
+Note: Tried commiting all my changes and now when i commit my changes it test all my files before I push the code.
 
-FROM node:18-alpine
+14.Created GitHUb Action Workflow:
+Created file: .github/workflows/ci.yml
 
-WORKDIR /lastname_firstname_ui_garden
+15.Created Dockerfile:
+Dockerfile
+FROM node:18 AS build
+
+WORKDIR /lastName_firstName_ui_garden_build_checks
 
 COPY package\*.json ./
-
 RUN npm install
 
 COPY . .
-
 RUN npm run build
 
-RUN npm install -g serve
+# Production stage
 
-EXPOSE 8083
+FROM nginx:alpine
 
-CMD ["serve", "-s", "build", "-l", "8083"]
+COPY --from=build /lastName_firstName_ui_garden_build_checks/build /usr/share/nginx/html
 
-Build Docker Image:
-docker build -t simran_simran_coding_assignment12 .
+EXPOSE 8018
 
-Run Docker Container
-docker run -p 8083:8083 --name simran_simran_coding_assignment12 simran_simran_coding_assignment12
+CMD ["nginx", "-g", "daemon off;"]
 
-Git hub link: https://github.com/RunDevelop344/react-component-library-cra.git
+16.Created Image with the following command:
+docker build -t simran_simran_coding_assignment13 .
+
+17.Built container using following command:
+docker run -d -p 8018:80 --name simran_simran_coding_assignment13 simran_simran_coding_assignment13
+
+18.Below is my GitHub Repository link:
+https://github.com/RunDevelop344/react-component-library-cra-testing.git
 
 Author: Simran Simran
 
