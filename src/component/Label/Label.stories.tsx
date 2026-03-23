@@ -16,7 +16,7 @@ const meta: Meta<typeof Label> = {
 
 export default meta;
 
-type Story = Story<typeof Label>;
+type Story = StoryObj<typeof Label>;
 
 export const Default: Story = {
   args: {
